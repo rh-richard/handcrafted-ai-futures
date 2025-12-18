@@ -15,9 +15,12 @@ const Navbar = () => {
   }, []);
 
   const navLinks = [
-    { href: '#technology', label: 'Technology' },
-    { href: '#industries', label: 'Industries' },
     { href: '#about', label: 'About' },
+    { href: '#o6', label: 'O6' },
+    { href: '#l6', label: 'L6' },
+    { href: '#demo', label: 'Demo' },
+    { href: '#sponsorship', label: 'Sponsorship' },
+    { href: '#blog', label: 'Blog' },
     { href: '#contact', label: 'Contact' },
   ];
 
@@ -25,22 +28,31 @@ const Navbar = () => {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? 'bg-background/80 backdrop-blur-xl border-b border-border/50'
+          ? 'bg-background/90 backdrop-blur-xl border-b border-border/50'
           : 'bg-transparent'
       }`}
     >
       <div className="container mx-auto px-6">
         <div className="flex items-center justify-between h-20">
-          {/* Logo */}
-          <a href="#" className="flex items-center gap-2 group">
-            <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center group-hover:shadow-[0_0_20px_hsl(217_100%_50%/0.4)] transition-shadow duration-300">
-              <span className="text-primary-foreground font-display font-bold text-lg">R</span>
+          {/* Logo Placeholder - Replace src with your logo */}
+          <a href="#" className="flex items-center group">
+            <div className="h-12 w-auto flex items-center justify-center rounded-lg overflow-hidden">
+              {/* Replace this placeholder with your actual logo image */}
+              <div className="w-12 h-12 bg-gradient-to-br from-primary to-accent rounded-lg flex items-center justify-center group-hover:shadow-[0_0_20px_hsl(217_100%_55%/0.4)] transition-shadow duration-300">
+                <span className="text-primary-foreground font-display font-bold text-xl">Logo</span>
+              </div>
+              {/* Uncomment and update the src when you have a logo:
+              <img 
+                src="/your-logo.png" 
+                alt="Company Logo" 
+                className="h-10 w-auto object-contain"
+              />
+              */}
             </div>
-            <span className="font-display font-semibold text-xl text-foreground">RealHand</span>
           </a>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden lg:flex items-center gap-6">
             {navLinks.map((link) => (
               <a
                 key={link.href}
@@ -53,7 +65,7 @@ const Navbar = () => {
           </div>
 
           {/* CTA Button */}
-          <div className="hidden md:block">
+          <div className="hidden lg:block">
             <Button variant="hero" size="default">
               Get Started
             </Button>
@@ -61,7 +73,7 @@ const Navbar = () => {
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden text-foreground p-2"
+            className="lg:hidden text-foreground p-2"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
             {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -71,7 +83,7 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="md:hidden bg-background/95 backdrop-blur-xl border-b border-border/50">
+        <div className="lg:hidden bg-background/95 backdrop-blur-xl border-b border-border/50">
           <div className="container mx-auto px-6 py-6 flex flex-col gap-4">
             {navLinks.map((link) => (
               <a
